@@ -12,15 +12,6 @@ A workspace for the PROlitics application.
 
 ## GitHub workflow
 
-1. Create an empty repository named `PROlitics` on GitHub.
-2. Open this folder in VS Code.
-3. Add the GitHub repository as the remote:
-
-   ```powershell
-   git remote add origin https://github.com/YOUR-USERNAME/PROlitics.git
-   ```
-
-4. Push the initial commit:
 
    ```powershell
    git branch -M main
