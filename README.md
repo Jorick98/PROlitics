@@ -10,6 +10,10 @@ A workspace for the PROlitics application.
 - `docs/` - Project documentation and decisions
 - `.github/` - GitHub configuration and Actions workflows
 
+## Documentatie
+
+De volledige functionele en technische uitleg staat in [docs/documentation.md](docs/documentation.md). Daarin staan het datamodel, de UI-workflows, de huidige analyseformules, de Markov-onderbouwing, beperkingen en het iteratieve ontwikkelplan.
+
 ## GitHub workflow
 
 
