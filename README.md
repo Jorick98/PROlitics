@@ -12,7 +12,33 @@ A workspace for the PROlitics application.
 
 ## Documentatie
 
-De volledige functionele en technische uitleg staat in [docs/documentation.md](docs/documentation.md). Daarin staan het datamodel, de UI-workflows, de huidige analyseformules, de Markov-onderbouwing, beperkingen en het iteratieve ontwikkelplan.
+De documentatie is per functie en onderwerp opgesplitst. Begin bij [docs/documentation.md](docs/documentation.md) voor de inhoudsopgave.
+
+## Lokaal testen
+
+Vereisten: Node.js LTS en npm. Voer in PowerShell uit:
+
+```powershell
+cd C:\Users\joric\Documents\PROlitics
+npm.cmd install
+npm.cmd run dev
+```
+
+Open daarna `http://localhost:5173` in de browser.
+
+Controleer de TypeScript-code en maak een productiebuild met:
+
+```powershell
+npm.cmd run build
+```
+
+Bekijk de productiebuild lokaal met:
+
+```powershell
+npm.cmd run preview
+```
+
+Open dan `http://localhost:4173`. Er is momenteel geen apart testframework geconfigureerd; `npm.cmd run build` is de geautomatiseerde compileer- en buildcontrole.
 
 ## GitHub workflow
 
