@@ -1,11 +1,11 @@
-# Markov-model
+# Markov model
 
-## Huidige situatie
+## Current implementation
 
 Een proces met nodes als toestanden kan als absorbing Markov chain worden beschreven:
 
 - transient states: processtappen;
-- absorbing state: eindpunt;
+- absorbing states: `Completed` and `Failed / rejected`;
 - overgangskansen: edge probabilities;
 - feedback-edges: overgangen terug naar een eerdere transient state.
 
@@ -17,7 +17,9 @@ $$
 
 `N[i][j]` geeft het verwachte aantal bezoeken aan toestand `j`, gegeven start in toestand `i`.
 
-## Waarom de huidige engine nog niet exact is
+The editor enforces exact 100% outgoing probability rows for non-terminal states. Terminal states have no editable outgoing routes. Failure and feedback routes remain separate classifications in the UI.
+
+## Why the engine is not exact yet
 
 De huidige engine bouwt geen matrix en voert geen matrixinversie uit. Hij verkent de graaf met gewichten en begrenst de cyclus via drempels. Daardoor kunnen meerdere loops worden afgekapt, worden padkansen niet volledig genormaliseerd en hebben parallelle stappen nog geen join-semantiek.
 

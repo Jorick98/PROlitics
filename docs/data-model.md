@@ -1,11 +1,11 @@
-# Datamodel
+# Data model
 
 ## Node
 
 Een node representeert een procesonderdeel.
 
 ```ts
-type NodeType = 'start' | 'process' | 'decision' | 'parallel' | 'end'
+type NodeType = 'start' | 'process' | 'decision' | 'parallel' | 'end' | 'defect'
 
 type ProcessNode = {
   id: string
@@ -26,7 +26,7 @@ type ProcessNode = {
 | `id` | string | unieke identificatie | uniek binnen workflow |
 | `type` | enum | soort node | start, process, decision, parallel of end |
 | `name` | string | zichtbare naam | vrij tekstveld |
-| `x`, `y` | number | canvaspositie | SVG-coordinaten |
+| `x`, `y` | number | canvas position | SVG coordinates, snapped to a 24 px grid |
 | `duration` | number | gemiddelde verwerkingstijd | minuten in de huidige demo |
 | `failureRate` | number | kans dat uitvoering faalt | percentage, 0-100 |
 | `reworkRate` | number | kans op terugkoppeling naar deze stap | percentage, 0-100 |
@@ -52,10 +52,10 @@ type ProcessEdge = {
 | `id` | string | unieke identificatie van de lijn |
 | `source` | string | id van de vertrek-node |
 | `target` | string | id van de aankomst-node |
-| `probability` | number | overgangskans in procenten |
+| `probability` | number | transition chance | integer percentage, 0-100 |
 | `isFeedback` | boolean | markeert een herstel-/terugkoppeling |
 
-Voor een beslispunt horen de uitgaande kansen in principe samen 100% te zijn. De huidige versie controleert dit nog niet automatisch.
+For every non-terminal node, outgoing probabilities must sum to exactly 100%. The UI redistributes sibling routes when a probability changes and displays invalid totals. `end` and `defect` are terminal states and cannot have outgoing routes. Incoming routes to `start` are not allowed.
 
 ## Voorbeeldmodel
 

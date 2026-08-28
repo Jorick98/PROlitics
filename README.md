@@ -10,13 +10,13 @@ A workspace for the PROlitics application.
 - `docs/` - Project documentation and decisions
 - `.github/` - GitHub configuration and Actions workflows
 
-## Documentatie
+## Documentation
 
-De documentatie is per functie en onderwerp opgesplitst. Begin bij [docs/documentation.md](docs/documentation.md) voor de inhoudsopgave.
+Documentation is organized by feature and topic. Start with [docs/documentation.md](docs/documentation.md) for the contents.
 
-## Lokaal testen
+## Local development and testing
 
-Vereisten: Node.js LTS en npm. Voer in PowerShell uit:
+Requirements: Node.js LTS and npm. In PowerShell, run:
 
 ```powershell
 cd C:\Users\joric\Documents\PROlitics
@@ -24,21 +24,21 @@ npm.cmd install
 npm.cmd run dev
 ```
 
-Open daarna `http://localhost:5173` in de browser.
+Open `http://localhost:5173` in the browser. The process editor uses a two-area layout: a 24 px snap grid and a transition matrix view.
 
-Controleer de TypeScript-code en maak een productiebuild met:
+Run the TypeScript check and production build with:
 
 ```powershell
 npm.cmd run build
 ```
 
-Bekijk de productiebuild lokaal met:
+Preview the production build locally with:
 
 ```powershell
 npm.cmd run preview
 ```
 
-Open dan `http://localhost:4173`. Er is momenteel geen apart testframework geconfigureerd; `npm.cmd run build` is de geautomatiseerde compileer- en buildcontrole.
+Open `http://localhost:4173`. There is no separate test framework yet; `npm.cmd run build` is the automated compile and bundle check. Manual acceptance scenarios are documented in [docs/Testresults.md](docs/Testresults.md).
 
 ## GitHub workflow
 

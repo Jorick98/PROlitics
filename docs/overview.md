@@ -1,4 +1,4 @@
-# Overzicht
+# Overview
 
 ## Doel
 
@@ -14,7 +14,7 @@ De applicatie geeft een eerste inschatting van:
 
 Een proces mag terugkoppelingen bevatten. Daarmee kunnen herstelwerk, afkeur, correcties en andere loops worden gemodelleerd.
 
-## Huidige status
+## Current status
 
 De huidige versie is een client-side prototype. Alle gegevens staan tijdens de sessie in React state in de browser.
 
@@ -22,10 +22,13 @@ De huidige versie is een client-side prototype. Alle gegevens staan tijdens de s
 
 - processtappen toevoegen, selecteren, bewerken, verplaatsen en verwijderen;
 - lijnen tussen nodes toevoegen, selecteren, bewerken en verwijderen;
-- probabilities en feedback-routes aanpassen;
+- probabilities and feedback routes with automatic row conservation;
 - aparte uitval- en reworkpercentages per stap;
 - wisselen tussen Proces- en Matrix-weergave;
-- live analyse van het procesmodel.
+- live analysis of the process model;
+- grid-snapped node movement and pointer-positioned drag-and-drop;
+- inline route editing in the matrix and contextual step editing on the canvas;
+- validation feedback, local persistence, and undo.
 
 ### Nog niet aanwezig
 
@@ -34,8 +37,9 @@ De huidige versie is een client-side prototype. Alle gegevens staan tijdens de s
 - exacte fundamentele Markov-matrixberekening;
 - Monte Carlo-simulaties;
 - optimalisatie onder budget- of capaciteitsbeperkingen;
-- formele validatiemeldingen in de gebruikersinterface;
-- drag-and-drop vanuit de bibliotheek naar een precieze canvaspositie.
+- server-side storage, users, and authorization;
+- exact fundamental-matrix Markov analysis;
+- Monte Carlo simulation and optimization.
 
 ## Technische architectuur
 
@@ -45,8 +49,8 @@ Browser
   +-- React UI (`src/App.tsx`)
   |     +-- procescanvas
   |     +-- matrixweergave
-  |     +-- node- en edge-editor
-  |     +-- analysepaneel
+  |     +-- contextual node/edge editor
+  |     +-- process grid and transition matrix
   |
   +-- React state
   |     +-- ProcessNode[]

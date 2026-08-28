@@ -1,4 +1,4 @@
-export type NodeType = 'start' | 'process' | 'decision' | 'parallel' | 'end'
+export type NodeType = 'start' | 'process' | 'decision' | 'parallel' | 'end' | 'defect'
 
 export type ProcessNode = {
   id: string
@@ -63,11 +63,7 @@ export function analyzeProcess(nodes: ProcessNode[], edges: ProcessEdge[]): Anal
 
     const outgoing = edges.filter((edge) => edge.source === node.id)
     outgoing.forEach((edge) => {
-      const target = nodes.find((item) => item.id === edge.target)
-      const configuredProbability = edge.isFeedback && target && target.reworkRate > 0
-        ? target.reworkRate
-        : edge.probability
-      const probability = clamp(configuredProbability / 100)
+      const probability = clamp(edge.probability / 100)
       const nextWeight = current.weight * probability
       if (nextWeight < 0.001) return
       queue.push({ id: edge.target, weight: nextWeight })

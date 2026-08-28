@@ -1,4 +1,4 @@
-# Lokaal ontwikkelen en testen
+# Local development and testing
 
 ## Vereisten
 
@@ -15,7 +15,7 @@ npm.cmd install
 npm.cmd run dev
 ```
 
-Open daarna `http://localhost:5173` in de browser.
+Open `http://localhost:5173` in the browser. The editor is designed for a viewport-sized workspace; use the Matrix view's internal scroll area for larger models.
 
 ## Productiebuild en TypeScript-check
 
@@ -34,4 +34,4 @@ npm.cmd run preview
 
 Open `http://localhost:4173`.
 
-Er is momenteel geen apart testframework of `test`-script geconfigureerd. Gebruik daarom `npm.cmd run build` als geautomatiseerde compileer- en buildcontrole en controleer de kernflows handmatig in de development server.
+There is currently no separate test framework or `test` script. Use `npm.cmd run build` as the automated TypeScript and bundle check, then manually test close/open selection, grid snapping, drag/drop placement, route creation/deletion, failure routing, matrix row totals, undo, and local reload persistence.

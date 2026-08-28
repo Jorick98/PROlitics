@@ -1,35 +1,42 @@
-# Proceseditor
+# Process editor
 
-## Procesweergave
+## Process view
 
-De procesweergave bestaat uit drie kolommen:
+The process view has two areas:
 
-1. Links staat de procesbibliotheek.
-2. In het midden staat het SVG-canvas.
-3. Rechts staat de editor voor de geselecteerde node of edge.
+1. The process library is on the left.
+2. The grid canvas and contextual editor occupy the main work area.
 
-## Node bewerken
+Nodes snap to a 24 px grid. Library blocks can be added with `+` or dragged onto the canvas; dropped blocks use the pointer location and are clamped to the canvas.
 
-1. Klik op een node.
-2. Pas rechts de naam of parameters aan.
-3. De React state wordt direct bijgewerkt.
-4. `analysis` wordt opnieuw berekend via `useMemo`.
-5. De cijfers in het analysepaneel worden direct vernieuwd.
+## Edit a node
 
-## Node bewegen
+1. Click a node.
+2. Edit its name or parameters in the contextual canvas editor.
+3. Close the editor with `Close`; no fallback node is selected.
+4. Changes are stored in the shared model and persisted to local storage.
 
-Een node gebruikt pointer-events. Bij `pointerdown` wordt het verschil tussen de pointerpositie en de nodepositie opgeslagen. Tijdens `pointermove` wordt de nodepositie aangepast. De positie wordt begrensd binnen het canvas.
+## Move a node
 
-## Verbinding maken
+Pointer movement updates the node position and snaps it to the grid. Nodes remain inside the canvas bounds.
 
-1. Klik op `Verbind stappen`.
-2. De geselecteerde node is de bron.
-3. Klik op een andere node.
-4. Er wordt een nieuwe edge met standaard probability `100` aangemaakt.
-5. Selecteer daarna de lijn om de probability en het type aan te passen.
+## Create a route
 
-Een dubbele verbinding met dezelfde bron en hetzelfde doel wordt momenteel niet toegevoegd via de procesweergave.
+1. Select a source node.
+2. Click `Connect steps`.
+3. Click a different target node.
+4. A new route receives the remaining probability from the source row. Duplicate routes, routes into `START`, and routes out of terminal states are rejected.
 
-## Edge bewerken
+The route label shows its probability. Feedback routes are identified by a backward target or can be marked in the route editor.
 
-Klik op een lijn of op het percentagelabel. Het rechterpaneel toont de bron, het doel, de probability, de feedback-optie en de verwijderactie. De geselecteerde edge krijgt een oranje markering. Feedback-edges worden rood en gestippeld getoond.
+## Edit a route
+
+Click a line or its percentage label. The contextual editor exposes probability, feedback classification, and delete. Changing one probability redistributes the remaining percentage across sibling routes using integer allocation so the row stays at exactly 100%.
+
+## Failure routes
+
+Select a non-terminal node and click `Failure to failed state`. The action creates a route to the failed state and marks it visually. It is disabled when no valid source is selected.
+
+## Undo and save
+
+`Undo` restores up to 20 previous model snapshots. `Save` persists the current model to local storage. The prototype still has no server-side workflow storage.

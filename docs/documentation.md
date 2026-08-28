@@ -1,18 +1,18 @@
 # PROlitics documentatie
 
-Versie: `0.1`  
-Status: eerste werkende frontend-slice
+Version: `0.2`  
+Status: client-side grid editor with process and matrix views
 
 De documentatie is per functie en onderwerp opgesplitst:
 
-1. [Overzicht](overview.md) - doel, status, architectuur en technologie.
-2. [Datamodel](data-model.md) - nodes, edges en voorbeeldmodel.
-3. [Proceseditor](process-editor.md) - canvas, nodes, verbindingen en edge-bewerking.
-4. [Matrixweergave](matrix-view.md) - probabilities en gedeelde edge-data.
-5. [Analyse-engine](analysis-engine.md) - gewogen graafverkenning, tijd, kosten, yield en bottleneck.
-6. [Markov-model](markov-model.md) - huidige beperkingen en doelarchitectuur.
-7. [Validatie](validation.md) - gewenste controles voor invoer en modellen.
-8. [Lokaal ontwikkelen en testen](local-development.md) - installatie, development server, build en preview.
-9. [Roadmap en ontwerpprincipes](roadmap.md) - vervolgedits en ontwikkeliteraties.
+1. [Overview](overview.md) - purpose, status, architecture, and technology.
+2. [Data model](data-model.md) - nodes, routes, and model rules.
+3. [Process editor](process-editor.md) - grid canvas, nodes, routes, and inline editing.
+4. [Transition matrix](matrix-view.md) - shared route data and probability conservation.
+5. [Analysis engine](analysis-engine.md) - weighted graph traversal, time, cost, yield, and bottleneck.
+6. [Markov model](markov-model.md) - assumptions and future exact analysis.
+7. [Validation](validation.md) - model checks and remaining gaps.
+8. [Local development](local-development.md) - installation, dev server, build, and manual testing.
+9. [Roadmap](roadmap.md) - future iterations and design principles.
 
 De huidige analyse-implementatie staat in `src/engine.ts`; de React-gebruikersinterface staat in `src/App.tsx`.

@@ -2,17 +2,17 @@
 
 ## Iteratief ontwikkelplan
 
-### Iteratie 1 - huidige basis
+### Iteration 1 - current basis
 
-Canvas, nodes, edges, probabilities, feedbackmarkering, parameters en matrixweergave.
+Grid canvas, nodes, routes, probabilities, feedback classification, parameters, failure state, and matrix view.
 
-### Iteratie 2 - modelkwaliteit
+### Iteration 2 - model quality
 
-- formele validaties;
-- edge-editor met bron/doelkeuze;
-- probability-normalisatie;
-- undo/redo;
-- persistente lokale opslag.
+- formal reachability and loop validation;
+- route editor with source/target selection;
+- exact probability allocation for arbitrary route counts;
+- redo and version comparison;
+- server-side workflow persistence.
 
 ### Iteratie 3 - exacte Markov-analyse
 
